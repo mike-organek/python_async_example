@@ -12,7 +12,7 @@ async def long_running_task(time_to_sleep):
 # Change the number of workers to see the impact of using async
 # If using time.sleep() in long_running_task(), keep the number of workers low 
 async def main():
-    workers = 500
+    workers = 5
     times = [random() for x in range(workers)]
     tasks = [asyncio.create_task(long_running_task(x)) for x in times]
     for x in asyncio.as_completed(tasks):
